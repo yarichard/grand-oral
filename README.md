@@ -1,3 +1,16 @@
+---
+title: Grand Oral
+emoji: 🐨
+colorFrom: red
+colorTo: yellow
+sdk: gradio
+sdk_version: 6.14.0
+python_version: '3.13'
+app_file: app.py
+pinned: false
+short_description: Agentic for Baccalaureat
+---
+
 ## Grand oral topic selection
 The aim of this project is to evaluate if one topic is relevant for the french baccalaureat grand oral
 It is based on the following technologies:
