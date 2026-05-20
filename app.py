@@ -3,6 +3,7 @@ from oral import GrandOral
 from oral_structs import GrandOralPlan
 import httpx
 import io
+import os
 from PIL import Image as PILImage
 
 async def setup():
@@ -83,4 +84,10 @@ with gr.Blocks(theme=gr.themes.Default(primary_hue="emerald")) as grand_oral_ui:
     message.submit(process_message, [grand_oral, message], [message_output, diagram_output])
     go_button.click(process_message, [grand_oral, message], [message_output, diagram_output])
 
-grand_oral_ui.launch(inbrowser=True)
+auth = None
+app_user = os.environ.get("APP_USER")
+app_password = os.environ.get("APP_PASSWORD")
+if app_user and app_password:
+    auth = (app_user, app_password)
+
+grand_oral_ui.launch(inbrowser=True, auth=auth)
