@@ -23,3 +23,5 @@ The agent graph is composed with the following agents:
 - Agent in charge of generating images to illustrate the grand oral
 
 ![Langgraph](./graph.png)
+
+Application can be accessed at https://yrichard-grand-oral.hf.space (use this direct URL — the HF Spaces iframe blocks authentication cookies)

@@ -90,4 +90,4 @@ app_password = os.environ.get("APP_PASSWORD")
 if app_user and app_password:
     auth = (app_user, app_password)
 
-grand_oral_ui.launch(inbrowser=True, auth=auth)
+grand_oral_ui.launch(auth=auth)
