@@ -35,6 +35,7 @@ anyio==4.13.0
     #   openai
     #   sse-starlette
     #   starlette
+    #   watchfiles
 art==6.5
     # via smithery
 asttokens==3.0.1
@@ -70,6 +71,8 @@ azure-identity==1.25.3
     #   semantic-kernel
 azure-storage-blob==12.29.0
     # via azure-ai-projects
+bcrypt==5.0.0
+    # via chromadb
 beautifulsoup4==4.14.3
     # via
     #   bs4
@@ -80,10 +83,13 @@ brotli==1.2.0
     # via gradio
 bs4==0.0.2
     # via grand-oral (pyproject.toml)
+build==1.5.0
+    # via chromadb
 certifi==2025.11.12
     # via
     #   httpcore
     #   httpx
+    #   kubernetes
     #   polygon-api-client
     #   requests
 cffi==2.0.0
@@ -94,6 +100,8 @@ chardet==7.4.3
     # via prance
 charset-normalizer==3.4.7
     # via requests
+chromadb==1.5.9
+    # via grand-oral (pyproject.toml)
 click==8.4.0
     # via
     #   typer
@@ -129,12 +137,16 @@ dnspython==2.8.0
     # via aioice
 docstring-parser==0.18.0
     # via anthropic
+durationpy==0.10
+    # via kubernetes
 executing==2.2.1
     # via stack-data
 fastapi==0.136.1
     # via gradio
 filelock==3.29.0
     # via huggingface-hub
+flatbuffers==25.12.19
+    # via onnxruntime
 frozenlist==1.8.0
     # via
     #   aiohttp
@@ -145,6 +157,8 @@ fsspec==2026.4.0
     #   huggingface-hub
 google-crc32c==1.8.0
     # via aiortc
+googleapis-common-protos==1.75.0
+    # via opentelemetry-exporter-otlp-proto-grpc
 gradio==6.14.0
     # via grand-oral (pyproject.toml)
 gradio-client==2.5.0
@@ -160,7 +174,10 @@ griffe==1.15.0
 groovy==0.1.2
     # via gradio
 grpcio==1.70.0
-    # via autogen-ext
+    # via
+    #   autogen-ext
+    #   chromadb
+    #   opentelemetry-exporter-otlp-proto-grpc
 h11==0.16.0
     # via
     #   httpcore
@@ -173,10 +190,13 @@ html5lib==1.1
     # via readabilipy
 httpcore==1.0.9
     # via httpx
+httptools==0.7.1
+    # via uvicorn
 httpx==0.28.1
     # via
     #   grand-oral (pyproject.toml)
     #   anthropic
+    #   chromadb
     #   gradio
     #   gradio-client
     #   huggingface-hub
@@ -194,6 +214,7 @@ huggingface-hub==1.15.0
     # via
     #   gradio
     #   gradio-client
+    #   tokenizers
 idna==3.15
     # via
     #   anyio
@@ -202,6 +223,8 @@ idna==3.15
     #   yarl
 ifaddr==0.2.0
     # via aioice
+importlib-resources==7.1.0
+    # via chromadb
 ipython==9.13.0
     # via ipywidgets
 ipython-pygments-lexers==1.1.1
@@ -232,6 +255,7 @@ jsonref==1.1.0
     # via autogen-core
 jsonschema==4.26.0
     # via
+    #   chromadb
     #   mcp
     #   openapi-core
     #   openapi-schema-validator
@@ -246,6 +270,8 @@ jsonschema-specifications==2025.9.1
     #   openapi-schema-validator
 jupyterlab-widgets==3.0.16
     # via ipywidgets
+kubernetes==35.0.0
+    # via chromadb
 langchain-anthropic==1.4.3
     # via grand-oral (pyproject.toml)
 langchain-classic==1.0.7
@@ -272,7 +298,9 @@ langchain-openai==1.2.1
 langchain-protocol==0.0.15
     # via langchain-core
 langchain-text-splitters==1.1.2
-    # via langchain-classic
+    # via
+    #   grand-oral (pyproject.toml)
+    #   langchain-classic
 langgraph==1.2.0
     # via grand-oral (pyproject.toml)
 langgraph-checkpoint==4.1.0
@@ -321,6 +349,8 @@ mcp-server-fetch==2025.1.17
     # via grand-oral (pyproject.toml)
 mdurl==0.1.2
     # via markdown-it-py
+mmh3==5.2.1
+    # via chromadb
 more-itertools==11.0.2
     # via openapi-core
 msal==1.36.0
@@ -341,13 +371,19 @@ nest-asyncio==1.6.0
     # via semantic-kernel
 numpy==2.4.6
     # via
+    #   chromadb
     #   gradio
     #   langchain-community
+    #   onnxruntime
     #   pandas
     #   scipy
     #   semantic-kernel
+oauthlib==3.3.1
+    # via requests-oauthlib
 ollama==0.6.2
     # via autogen-ext
+onnxruntime==1.26.0
+    # via chromadb
 openai==2.37.0
     # via
     #   grand-oral (pyproject.toml)
@@ -369,22 +405,39 @@ openapi-spec-validator==0.7.2
 opentelemetry-api==1.42.0
     # via
     #   autogen-core
+    #   chromadb
+    #   opentelemetry-exporter-otlp-proto-grpc
     #   opentelemetry-sdk
     #   opentelemetry-semantic-conventions
     #   semantic-kernel
+opentelemetry-exporter-otlp-proto-common==1.42.0
+    # via opentelemetry-exporter-otlp-proto-grpc
+opentelemetry-exporter-otlp-proto-grpc==1.42.0
+    # via chromadb
+opentelemetry-proto==1.42.0
+    # via
+    #   opentelemetry-exporter-otlp-proto-common
+    #   opentelemetry-exporter-otlp-proto-grpc
 opentelemetry-sdk==1.42.0
-    # via semantic-kernel
+    # via
+    #   chromadb
+    #   opentelemetry-exporter-otlp-proto-grpc
+    #   semantic-kernel
 opentelemetry-semantic-conventions==0.63b0
     # via opentelemetry-sdk
 orjson==3.11.9
     # via
+    #   chromadb
     #   gradio
     #   langgraph-sdk
     #   langsmith
 ormsgpack==1.12.2
     # via langgraph-checkpoint
+overrides==7.7.0
+    # via chromadb
 packaging==26.2
     # via
+    #   build
     #   deprecation
     #   gradio
     #   gradio-client
@@ -392,6 +445,7 @@ packaging==26.2
     #   langchain-core
     #   langsmith
     #   marshmallow
+    #   onnxruntime
     #   plotly
     #   prance
 pandas==3.0.3
@@ -427,6 +481,9 @@ protego==0.6.0
 protobuf==5.29.6
     # via
     #   autogen-core
+    #   googleapis-common-protos
+    #   onnxruntime
+    #   opentelemetry-proto
     #   semantic-kernel
 psutil==7.2.2
     # via
@@ -438,12 +495,15 @@ pure-eval==0.2.3
     # via stack-data
 pybars4==0.9.13
     # via semantic-kernel
+pybase64==1.4.3
+    # via chromadb
 pycparser==3.0
     # via cffi
 pydantic==2.11.10
     # via
     #   anthropic
     #   autogen-core
+    #   chromadb
     #   fastapi
     #   gradio
     #   langchain-anthropic
@@ -463,6 +523,7 @@ pydantic-core==2.33.2
     # via pydantic
 pydantic-settings==2.14.1
     # via
+    #   chromadb
     #   langchain-community
     #   mcp
     #   semantic-kernel
@@ -491,13 +552,20 @@ pypdf==6.11.0
     # via grand-oral (pyproject.toml)
 pypdf2==3.0.1
     # via grand-oral (pyproject.toml)
+pypika==0.51.1
+    # via chromadb
+pyproject-hooks==1.2.0
+    # via build
 python-dateutil==2.9.0.post0
-    # via pandas
+    # via
+    #   kubernetes
+    #   pandas
 python-dotenv==1.2.2
     # via
     #   grand-oral (pyproject.toml)
     #   mcp
     #   pydantic-settings
+    #   uvicorn
 python-http-client==3.3.7
     # via sendgrid
 python-multipart==0.0.29
@@ -508,12 +576,15 @@ pytz==2026.2
     # via gradio
 pyyaml==6.0.3
     # via
+    #   chromadb
     #   gradio
     #   huggingface-hub
     #   jsonschema-path
+    #   kubernetes
     #   langchain-classic
     #   langchain-community
     #   langchain-core
+    #   uvicorn
 readabilipy==0.3.0
     # via mcp-server-fetch
 referencing==0.36.2
@@ -530,6 +601,7 @@ requests==2.34.2
     #   grand-oral (pyproject.toml)
     #   azure-core
     #   jsonschema-path
+    #   kubernetes
     #   langchain-classic
     #   langchain-community
     #   langsmith
@@ -537,15 +609,20 @@ requests==2.34.2
     #   msal
     #   openai-agents
     #   prance
+    #   requests-oauthlib
     #   requests-toolbelt
     #   tiktoken
     #   wikipedia
+requests-oauthlib==2.0.0
+    # via kubernetes
 requests-toolbelt==1.0.0
     # via langsmith
 rfc3339-validator==0.1.4
     # via openapi-schema-validator
 rich==15.0.0
-    # via typer
+    # via
+    #   chromadb
+    #   typer
 rpds-py==0.30.0
     # via
     #   jsonschema
@@ -569,6 +646,7 @@ shellingham==1.5.4
 six==1.17.0
     # via
     #   html5lib
+    #   kubernetes
     #   markdownify
     #   python-dateutil
     #   rfc3339-validator
@@ -601,18 +679,22 @@ starlette==1.0.0
     #   sse-starlette
 tenacity==9.1.4
     # via
+    #   chromadb
     #   langchain-community
     #   langchain-core
 tiktoken==0.13.0
     # via
     #   autogen-ext
     #   langchain-openai
+tokenizers==0.23.1
+    # via chromadb
 toml==0.10.2
     # via smithery
 tomlkit==0.14.0
     # via gradio
 tqdm==4.67.3
     # via
+    #   chromadb
     #   huggingface-hub
     #   openai
 traitlets==5.15.0
@@ -622,6 +704,7 @@ traitlets==5.15.0
     #   matplotlib-inline
 typer==0.25.1
     # via
+    #   chromadb
     #   gradio
     #   hf-gradio
     #   huggingface-hub
@@ -641,6 +724,7 @@ typing-extensions==4.15.0
     #   azure-identity
     #   azure-storage-blob
     #   beautifulsoup4
+    #   chromadb
     #   fastapi
     #   gradio
     #   gradio-client
@@ -652,6 +736,7 @@ typing-extensions==4.15.0
     #   openai-agents
     #   openapi-core
     #   opentelemetry-api
+    #   opentelemetry-exporter-otlp-proto-grpc
     #   opentelemetry-sdk
     #   opentelemetry-semantic-conventions
     #   pydantic
@@ -674,6 +759,7 @@ typing-inspection==0.4.2
     #   pydantic-settings
 urllib3==2.7.0
     # via
+    #   kubernetes
     #   polygon-api-client
     #   requests
     #   types-requests
@@ -683,17 +769,25 @@ uuid-utils==0.16.0
     #   langsmith
 uvicorn==0.47.0
     # via
+    #   chromadb
     #   gradio
     #   mcp
     #   smithery
+uvloop==0.22.1
+    # via uvicorn
+watchfiles==1.2.0
+    # via uvicorn
 wcwidth==0.7.0
     # via prompt-toolkit
 webencodings==0.5.1
     # via html5lib
+websocket-client==1.9.0
+    # via kubernetes
 websockets==15.0.1
     # via
     #   polygon-api-client
     #   semantic-kernel
+    #   uvicorn
 werkzeug==3.1.1
     # via
     #   openapi-core
