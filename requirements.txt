@@ -101,7 +101,9 @@ chardet==7.4.3
 charset-normalizer==3.4.7
     # via requests
 chromadb==1.5.9
-    # via grand-oral (pyproject.toml)
+    # via
+    #   grand-oral (pyproject.toml)
+    #   langchain-chroma
 click==8.4.0
     # via
     #   typer
@@ -274,6 +276,8 @@ kubernetes==35.0.0
     # via chromadb
 langchain-anthropic==1.4.3
     # via grand-oral (pyproject.toml)
+langchain-chroma==1.1.0
+    # via grand-oral (pyproject.toml)
 langchain-classic==1.0.7
     # via langchain-community
 langchain-community==0.4.1
@@ -283,6 +287,7 @@ langchain-community==0.4.1
 langchain-core==1.4.0
     # via
     #   langchain-anthropic
+    #   langchain-chroma
     #   langchain-classic
     #   langchain-community
     #   langchain-experimental
@@ -373,6 +378,7 @@ numpy==2.4.6
     # via
     #   chromadb
     #   gradio
+    #   langchain-chroma
     #   langchain-community
     #   onnxruntime
     #   pandas
