@@ -10,6 +10,8 @@ RUN groupadd --gid 1000 vscode \
     git \
     sudo \
     curl \
+    && curl -fsSL https://deb.nodesource.com/setup_20.x | bash - \
+    && apt-get install -y nodejs \
     && echo "vscode ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers \
     && rm -rf /var/lib/apt/lists/*
 
@@ -18,6 +20,13 @@ RUN pip install --no-cache-dir \
     ipykernel \
     pandas
 
+USER vscode
+
+# Install Playwright MCP browser (Chrome is not available on ARM64)
+RUN npx @playwright/mcp install-browser chrome-for-testing
+
+USER root
+RUN npx playwright install-deps chromium
 USER vscode
 
 # Install uv for vscode user

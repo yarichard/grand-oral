@@ -1,13 +1,11 @@
 from dotenv import load_dotenv
 from langchain_community.utilities import GoogleSerperAPIWrapper
 from langchain_core.tools import Tool
-from langchain_openai import ChatOpenAI
 from langsmith import uuid
-from agents.student import Student
-from agents.drawer import Drawer
-from agents.teacher import Teacher
-from oral_structs import EvaluationResult, ProsArguments, ConsArguments, State
-from langchain_core.messages import HumanMessage, SystemMessage
+from app_agents.student import Student
+from app_agents.drawer import Drawer
+from app_agents.teacher import Teacher
+from oral_structs import State
 from langgraph.graph import END, START, StateGraph
 from langgraph.checkpoint.memory import MemorySaver
 import uuid
